@@ -210,10 +210,10 @@ class WhoamiCommand(Command):
                 print('{0:>20s} {1:>20s}: {2}'.format('Account', 'Type', account_type_name))
                 print('{0:>20s} {1:>20s}: {2}'.format('', 'Renewal Date', params.license['expiration_date']))
                 if 'bytes_total' in params.license:
-                    storage_bytes = params.license['bytes_total']
+                    storage_bytes = int(params.license['bytes_total'])  # note: int64 in protobuf in python produces string as opposed to an int or long.
                     storage_gb = storage_bytes >> 30
                     print('{0:>20s} {1:>20s}: {2}GB'.format('Storage', 'Capacity', storage_gb))
-                    storage_usage = (params.license['bytes_used'] * 100 // storage_bytes) if storage_bytes != 0 else 0
+                    storage_usage = (int(params.license['bytes_used']) * 100 // storage_bytes) if storage_bytes != 0 else 0     # note: int64 in protobuf in python produces string  as opposed to an int or long.
                     print('{0:>20s} {1:>20s}: {2}%'.format('', 'Usage', storage_usage))
                     print('{0:>20s} {1:>20s}: {2}'.format('', 'Renewal Date', params.license['storage_expiration_date']))
 
