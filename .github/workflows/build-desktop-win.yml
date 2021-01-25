@@ -23,11 +23,11 @@ jobs:
     - name: 'Install Advanced Installer'
       uses: crazy-max/ghaction-chocolatey@v1
       with:
-        args: install advanced-installer
+        args: install advanced-installer --version 17.9
 
     
     - name: 'Make Installer'
-      run: '"C:\Program Files (x86)\Caphyon\Advanced Installer 16.9\bin\x86\AdvancedInstaller.com" /build keeper-win-installer.aip'
+      run: '"C:\Program Files (x86)\Caphyon\Advanced Installer 17.9\bin\x86\AdvancedInstaller.com" /build keeper-win-installer.aip'
 
     
 
