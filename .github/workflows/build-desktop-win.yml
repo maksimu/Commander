@@ -27,7 +27,7 @@ jobs:
 
     
     - name: 'Make Installer'
-      run: '"C:\Program Files (x86)\Caphyon\Advanced Installer 16.9\bin\x86\AdvancedInstaller.com" /register <my_license_key_here> /build keeper-win-installer.aip'
+      run: '"C:\Program Files (x86)\Caphyon\Advanced Installer 16.9\bin\x86\AdvancedInstaller.com" /build keeper-win-installer.aip'
 
     
 
