@@ -20,6 +20,18 @@ jobs:
         path: .
         spec: keeper-win-file.spec
 
+    - name: 'Install Advanced Installer'
+      run: choco --yes install advanced-installer
+
+    
+    - name: 'Make Installer'
+      run: AdvancedInstaller.com /build keeper-win-installer.aip
+
+    
+
+
+
+
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
       with:
