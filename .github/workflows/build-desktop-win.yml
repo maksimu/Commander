@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -21,7 +21,9 @@ jobs:
         spec: keeper-win-file.spec
 
     - name: 'Install Advanced Installer'
-      run: choco --yes install advanced-installer
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install advanced-installer
 
     
     - name: 'Make Installer'
