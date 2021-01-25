@@ -20,6 +20,13 @@ jobs:
         path: .
         spec: keeper-win-file.spec
 
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: keeper-win-file
+        path: dist/windows/keeper.exe
+        retention-days: 1
+
 #     - uses: actions/upload-artifact@v2
 #       with:
 #         name: name-of-artifact
