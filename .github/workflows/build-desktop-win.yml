@@ -1,0 +1,47 @@
+name: Package Application with Pyinstaller
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Package Application
+      uses: JackMcKew/pyinstaller-action-windows@main
+      with:
+        path: .
+        spec: keeper-win-file.spec
+
+    - name: 'Install Advanced Installer'
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+        args: install advanced-installer --version 17.9
+
+    
+    - name: 'Make Installer'
+      run: '"C:\Program Files (x86)\Caphyon\Advanced Installer 17.9\bin\x86\AdvancedInstaller.com" /build keeper-win-installer.aip'
+
+    
+
+
+
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: keeper-win-file
+        path: dist/windows/keeper.exe
+        retention-days: 1
+
+#     - uses: actions/upload-artifact@v2
+#       with:
+#         name: name-of-artifact
+#         path: src/dist/windows
