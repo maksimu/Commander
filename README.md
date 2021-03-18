@@ -1660,7 +1660,7 @@ This example demonstrates retrieving a password in Keeper for user in Azure DevO
 
 1. Generate configuration file 
    
-    See step 1 [GitHub Actions Integration](#github-actions-integration) example. 
+    See Step 1 in [GitHub Actions Integration](#github-actions-integration) example. 
 
 2. Azure DevOps Pipline configuration
 
