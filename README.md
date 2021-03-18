@@ -1608,7 +1608,7 @@ This example demonstrates retrieving a password in Keeper for user in GitHub Act
     Example Github Actions workflow code:
   
     ```yaml
-    name: Commander In Action
+    name: Commander In GitHub Actions
     on:
       push:
         branches: [ main ]
@@ -1686,21 +1686,25 @@ This example demonstrates retrieving a password in Keeper for user in Azure DevO
         addToPath: true
         architecture: 'x64'
     
+    - task: DownloadSecureFile@1
+      name: secureKeeperConfig
+      displayName: Download Keeper config file
+      inputs:
+        secureFile: config.json
+    
     - displayName: Install Keeper Commander
       script: |
         pip3 install keepercommander
-    
-    - displayName: 'Create config file'
-      script: |
-        echo "CREATE config.json file"
-    
+        
     - displayName: 'Example calling Keeper'
       script: |
+        export KEEPER_CONFIG_FILE=$(keeperConfig.secureFilePath)
+        keeper whoami
         keeper "ls -l"
     ```
 
 
-See [this document](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/azure-key-vault?view=azure-devops) on how to setup and Use Azure Key Value screts in Azure DevOps Pipline
+See [this document](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/download-secure-file?view=azure-devops) on how to securely store files in Azure DevOps Pipline
 
 
 ### Launching and Connecting to Remote Servers 
