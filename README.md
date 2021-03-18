@@ -1580,7 +1580,7 @@ In this example, replace the Record UID with the actual UID from the Keeper vaul
 This example demonstrates retrieving a password in Keeper for user in GitHub Actions environment
 
 1. Generate configuration file
-    - On your local machine, login to Keeper with the account you will be using in GitHub Actions. In our example we will use `gha@mycompnay.com`. Make sure to disable 2FA for this account.
+    - On your local machine, login to Keeper with the account you will be using in GitHub Actions. In our example we will use `gha@mycompany.com`. Make sure to disable 2FA for this account.
       ```shell
       keeper shell --user gha@mycompany.com
       ```
@@ -1591,7 +1591,7 @@ This example demonstrates retrieving a password in Keeper for user in GitHub Act
       
       ```json
       {
-          "user": "gha@mycompnay.com",
+          "user": "gha@mycompany.com",
           "password": "M4yTh4F0rc3Bw1thU!",
           "private_key": "upemV2551Nc-oOw6DbqBzAXphOw46BBW19Rw7auXhzY",
           "device_token": "kDbya3s-pco6N7n5mKBqSgUyQMCv9QVim4gh177zBJ11Pg"
@@ -1660,7 +1660,7 @@ This example demonstrates retrieving a password in Keeper for user in Azure DevO
 
 1. Generate configuration file 
    
-    See step 1 [GitHub Actions Integration](#github-actions-integration) example. 
+    See Step 1 in [GitHub Actions Integration](#github-actions-integration) example. 
 
 2. Azure DevOps Pipline configuration
 
